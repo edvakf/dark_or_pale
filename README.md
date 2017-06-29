@@ -3,7 +3,7 @@
 A command line tool to determines whether an image is mostly dark or pale.
 
 ```
-$ dark_or_pale file
+$ dark_or_pale thisis.jpg
 dark
 ```
 
