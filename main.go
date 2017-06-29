@@ -12,13 +12,21 @@ import (
 )
 
 var thresholdDarkness int
+var showVersion bool
 
 func init() {
 	flag.IntVar(&thresholdDarkness, "th", 150, "threshold of darkness out of 255; smaller is darker")
+	flag.BoolVar(&showVersion, "v", false, "show version and exit")
 }
 
 func main() {
 	flag.Parse()
+
+	if showVersion {
+		fmt.Printf("%s %s\n", Version, GitCommit)
+		os.Exit(0)
+	}
+
 	args := flag.Args()
 	if len(args) < 1 {
 		fmt.Fprintln(os.Stderr, "input file is missing")
